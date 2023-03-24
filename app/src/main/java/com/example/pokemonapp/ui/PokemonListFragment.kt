@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.pokemonapp.R
 import com.example.pokemonapp.databinding.FragmentPokemonListBinding
+import com.example.pokemonapp.ui.adapters.PokemonItemAdapter
 
 
 class PokemonListFragment : Fragment() {
@@ -17,6 +18,8 @@ class PokemonListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: PokemonListViewModel by viewModels()
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,7 +36,8 @@ class PokemonListFragment : Fragment() {
         initObservers()
     }
 
-    fun initObservers() {
+    private fun initObservers() {
+
 
         viewModel.loading.observe(viewLifecycleOwner) { loadingStatus ->
             if (loadingStatus) {
@@ -42,13 +46,14 @@ class PokemonListFragment : Fragment() {
                 binding.loaderImg.visibility = View.GONE
             }
         }
-
         viewModel.pokemons.observe(viewLifecycleOwner) { pokemonList ->
-            binding.dataStatus.text = resources.getString(R.string.data_loaded_successfully)
-            Log.d("listPok", pokemonList.toString())
+            binding.PokemonListRecyclerView.adapter = PokemonItemAdapter(pokemonList)
+            binding.dataStatus.visibility = View.GONE
         }
 
-        viewModel.errorResponse.observe(viewLifecycleOwner) { error ->
+
+
+        viewModel.errorResponse.observe(viewLifecycleOwner) {
             binding.dataStatus.text = resources.getString(R.string.fail_to_load_data)
         }
     }
