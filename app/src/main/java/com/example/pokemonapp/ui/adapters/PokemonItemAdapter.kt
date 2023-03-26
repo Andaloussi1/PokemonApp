@@ -1,11 +1,10 @@
 package com.example.pokemonapp.ui.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pokemonapp.data.model.Pokemon
 import com.example.pokemonapp.databinding.PokemonItemBinding
+import com.example.pokemonapp.domain.model.Pokemon
 
 
 class PokemonItemAdapter(private val pokemonList: List<Pokemon>) :
@@ -15,7 +14,7 @@ class PokemonItemAdapter(private val pokemonList: List<Pokemon>) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
             binding.PokemonItemNameTextView.text = pokemon.name
-            binding.pokemonPhoto = pokemon.getImage()
+            binding.pokemonPhoto = pokemon.image
         }
     }
 
