@@ -1,7 +1,6 @@
 package com.example.pokemonapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,6 @@ class PokemonListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: PokemonListViewModel by viewModels()
-
 
 
     override fun onCreateView(
@@ -50,8 +48,6 @@ class PokemonListFragment : Fragment() {
             binding.PokemonListRecyclerView.adapter = PokemonItemAdapter(pokemonList)
             binding.dataStatus.visibility = View.GONE
         }
-
-
 
         viewModel.errorResponse.observe(viewLifecycleOwner) {
             binding.dataStatus.text = resources.getString(R.string.fail_to_load_data)

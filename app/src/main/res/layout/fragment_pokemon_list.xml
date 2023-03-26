@@ -13,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.pokemonapp.ui.PokemonListViewModel">
+        tools:context="com.example.pokemonapp.ui.PokemonListViewModel"
+        android:background="@color/background_color">
         <TextView
             android:id="@+id/dataStatus"
             android:layout_width="wrap_content"
@@ -43,7 +44,8 @@
             android:padding="10dp"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="3" />
+            app:spanCount="3"
+            />
 
         <!--        Add the recycler view  -->
 
