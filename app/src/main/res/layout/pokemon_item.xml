@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="pokemonPhoto"
-            type="String" />
+            name="pokemon"
+            type="com.example.pokemonapp.domain.model.Pokemon" />
     </data>
 
 
@@ -20,8 +20,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="15dp"
             android:layout_margin="2dp"
+            app:cardCornerRadius="15dp"
             app:cardElevation="2dp">
 
 
@@ -39,7 +39,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:pokemonImgUrl="@{pokemonPhoto}"
+                    app:pokemonImgUrl="@{pokemon.image}"
                     tools:src="@drawable/ic_launcher_background" />
 
                 <TextView
@@ -47,6 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:text="@{pokemon.name}"
                     android:textSize="15sp"
                     app:layout_constraintTop_toBottomOf="@id/PokemonItemImgView"
                     tools:text="pokemon" />

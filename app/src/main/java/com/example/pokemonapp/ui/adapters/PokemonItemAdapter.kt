@@ -7,14 +7,16 @@ import com.example.pokemonapp.databinding.PokemonItemBinding
 import com.example.pokemonapp.domain.model.Pokemon
 
 
-class PokemonItemAdapter(private val pokemonList: List<Pokemon>) :
+class PokemonItemAdapter(
+    private val pokemonList: List<Pokemon>,
+    private val onPokemonClicked: (Int) -> Unit
+) :
     RecyclerView.Adapter<PokemonItemAdapter.PokemonItemViewHolder>() {
 
     class PokemonItemViewHolder(private var binding: PokemonItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(pokemon: Pokemon) {
-            binding.PokemonItemNameTextView.text = pokemon.name
-            binding.pokemonPhoto = pokemon.image
+            binding.pokemon = pokemon
         }
     }
 
@@ -33,6 +35,9 @@ class PokemonItemAdapter(private val pokemonList: List<Pokemon>) :
 
     override fun onBindViewHolder(holder: PokemonItemViewHolder, position: Int) {
         val item = pokemonList[position]
+        holder.itemView.setOnClickListener {
+            onPokemonClicked(item.id)
+        }
         holder.bind(item)
     }
 }

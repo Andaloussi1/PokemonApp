@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.pokemonapp.ui.PokemonDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        tools:context="com.example.pokemonapp.ui.PokemonListViewModel">
+
+
+        <TextView
+            android:id="@+id/pokemonCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.pokemonDetails.category}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="category" />
+
+
+        <TextView
+            android:id="@+id/pokemonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.pokemonDetails.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemonCategory"
+            tools:text="name" />
+
+
+        <TextView
+            android:id="@+id/pokemonWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.pokemonDetails.weight}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemonName"
+            tools:text="Weight" />
+
+        <TextView
+            android:id="@+id/pokemonHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.pokemonDetails.height}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemonWeight"
+            tools:text="Height" />
+
+
+        <TextView
+            android:id="@+id/pokemonHp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.pokemonDetails.stats.hp)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemonHeight"
+            tools:text="Hp" />
+
+        <TextView
+            android:id="@+id/pokemonSpeAtk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.pokemonDetails.stats.spe_atk)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemonHp"
+            tools:text="Spe_atk" />
+
+        <TextView
+            android:id="@+id/pokemonSpeDef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.pokemonDetails.stats.spe_def)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemonSpeAtk"
+            tools:text="Spe_def" />
+
+        <TextView
+            android:id="@+id/pokemonVit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.pokemonDetails.stats.vit)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pokemonSpeDef"
+            tools:text="vit" />
+
+        <TextView
+            android:id="@+id/pokemonAtk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.pokemonDetails.stats.atk)}"
+            app:layout_constraintBottom_toTopOf="@id/pokemonCategory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="atk" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
