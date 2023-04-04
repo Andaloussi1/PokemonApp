@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.pokemonapp.R
 import com.example.pokemonapp.databinding.FragmentPokemonListBinding
 import com.example.pokemonapp.ui.adapters.PokemonItemAdapter
@@ -47,12 +46,7 @@ class PokemonListFragment : Fragment() {
         }
         viewModel.pokemons.observe(viewLifecycleOwner) { pokemonList ->
             binding.PokemonListRecyclerView.adapter = PokemonItemAdapter(pokemonList) { pokemonId ->
-                val action =
-                    PokemonListFragmentDirections.actionPokemonListFragmentToPokemonDetailsFragment(
-                        pokemonId
-                    )
-                this.findNavController().navigate(action)
-
+                (requireActivity() as PokemonMainActivity).navPokemonDetails(pokemonId)
             }
             binding.dataStatus.visibility = View.GONE
         }
