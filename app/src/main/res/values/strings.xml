@@ -2,4 +2,7 @@
     <string name="app_name">PokemonApp</string>
     <string name="data_loaded_successfully">Pokemons list loaded successfully</string>
     <string name="fail_to_load_data">Fail to load data</string>
+    <string name="height">Height : %s</string>
+    <string name="weight">Weight : %s</string>
+
 </resources>

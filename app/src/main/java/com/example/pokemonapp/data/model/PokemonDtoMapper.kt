@@ -15,12 +15,16 @@ class PokemonDtoMapper {
     fun mapToPokemonDetails(pokemonDetailsDto: PokemonDetailsDto): PokemonDetails =
         PokemonDetails(
             pokedexId = pokemonDetailsDto.pokedexId,
+            image = pokemonDetailsDto.getImage(),
             category = pokemonDetailsDto.category,
             name = pokemonDetailsDto.name.en,
-            stats = pokemonDetailsDto.stats,
             height = pokemonDetailsDto.height,
             weight = pokemonDetailsDto.weight,
             egg_groups = pokemonDetailsDto.egg_groups,
+            attack = pokemonDetailsDto.stats.atk,
+            defense = pokemonDetailsDto.stats.def,
+            healthPoints = pokemonDetailsDto.stats.hp,
+            vitamin = pokemonDetailsDto.stats.vit
 
             )
 

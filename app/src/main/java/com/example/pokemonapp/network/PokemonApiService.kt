@@ -9,7 +9,9 @@ import retrofit2.http.Path
 private const val BASE_URL = "https://api-pokemon-fr.vercel.app/api/v1/"
 
 private val retrofit =
-    Retrofit.Builder().addConverterFactory(ScalarsConverterFactory.create()).baseUrl(BASE_URL)
+    Retrofit.Builder()
+        .addConverterFactory(ScalarsConverterFactory.create())
+        .baseUrl(BASE_URL)
         .build()
 
 interface PokemonApiService {
