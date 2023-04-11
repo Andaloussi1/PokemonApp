@@ -9,8 +9,10 @@ import androidx.fragment.app.viewModels
 import com.example.pokemonapp.R
 import com.example.pokemonapp.databinding.FragmentPokemonListBinding
 import com.example.pokemonapp.ui.adapters.PokemonItemAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class PokemonListFragment : Fragment() {
 
     private var _binding: FragmentPokemonListBinding? = null

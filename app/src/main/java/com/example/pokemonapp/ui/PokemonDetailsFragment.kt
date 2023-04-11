@@ -11,7 +11,9 @@ import com.example.pokemonapp.R
 import com.example.pokemonapp.databinding.FragmentPokemonDetailsBinding
 import com.example.pokemonapp.domain.model.PokemonDetails
 import com.example.pokemonapp.util.bindImage
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PokemonDetailsFragment : Fragment() {
     private val navigationArgs: PokemonDetailsFragmentArgs by navArgs()
     private val viewModel: PokemonDetailsViewModel by viewModels()

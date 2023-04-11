@@ -1,4 +1,11 @@
 package com.example.pokemonapp.ui
 
-class PokemonMainActivityDaggerHilt {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class PokemonMainActivityDaggerHilt :Application() {
+    override fun onCreate() {
+        super.onCreate()
+    }
 }

@@ -4,11 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pokemonapp.domain.GetPokemonDeatilsUseCase
+import com.example.pokemonapp.domain.GetPokemonDetailsUseCase
 import com.example.pokemonapp.domain.model.PokemonDetails
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PokemonDetailsViewModel : ViewModel() {
+@HiltViewModel
+class PokemonDetailsViewModel @Inject constructor(
+    private val getPokemonDetailsUseCase: GetPokemonDetailsUseCase
+) : ViewModel() {
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
@@ -22,7 +27,7 @@ class PokemonDetailsViewModel : ViewModel() {
     fun getPokemonDetails(pokemonId: Int) {
         viewModelScope.launch {
             _loading.value = true
-            val result = GetPokemonDeatilsUseCase().execute(pokemonId)
+            val result = getPokemonDetailsUseCase.execute(pokemonId)
             result.first?.let { pokemonDetails ->
                 _pokemonDetails.value = pokemonDetails
             } ?: run {
