@@ -6,9 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokemonapp.domain.GetPokemonListUseCase
 import com.example.pokemonapp.domain.model.Pokemon
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PokemonListViewModel : ViewModel() {
+@HiltViewModel
+class PokemonListViewModel @Inject constructor(
+    private val pokemonListUseCase: GetPokemonListUseCase
+) : ViewModel() {
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
@@ -26,7 +31,7 @@ class PokemonListViewModel : ViewModel() {
     private fun getPokemonList() {
         viewModelScope.launch {
             _loading.value = true
-            val result = GetPokemonListUseCase().execute()
+            val result = pokemonListUseCase.execute()
             result.first?.let { pokemonList ->
                 _pokemons.value = pokemonList
             } ?: run {
