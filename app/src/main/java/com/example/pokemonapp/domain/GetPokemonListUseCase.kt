@@ -8,7 +8,6 @@ class GetPokemonListUseCase
 @Inject constructor(
     private val pokemonRepository: PokemonRepository
 ) {
-
     suspend fun execute(): Pair<List<Pokemon>?, String?> =
         pokemonRepository.getPokemonList()
 }

@@ -5,7 +5,5 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class PokemonMainActivityDaggerHilt :Application() {
-    override fun onCreate() {
-        super.onCreate()
-    }
+
 }

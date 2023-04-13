@@ -19,7 +19,7 @@ class PokemonRemoteDataSourceImpl @Inject constructor(private val pokemonApiServ
             val entireList = Gson().fromJson(
                 response.toString(), Array<PokemonDto>::class.java
             ).asList()
-            // to retrieve the first null element in the list
+            // to delete the first null element of the list
             val pokemonList = entireList.subList(1, entireList.size)
             Pair(pokemonList, null)
 

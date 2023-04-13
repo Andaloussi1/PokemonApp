@@ -14,24 +14,18 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object PokemonAppModule {
+class PresentationModule {
 
-    @Singleton
+
     @Provides
     fun providePokemonRepository(pokemonRemoteDataSource: PokemonRemoteDataSource): PokemonRepository =
         PokemonRepositoryImpl(pokemonRemoteDataSource)
 
-}
-
-
-@Module(includes = [NetworkModule::class])
-@InstallIn(SingletonComponent::class)
-object PokemonDataSourceModule {
 
     @Provides
-    @Singleton
     fun provideRemoteDataSource(pokemonApiService: PokemonApiService): PokemonRemoteDataSource =
         PokemonRemoteDataSourceImpl(pokemonApiService)
+
 }
 
 

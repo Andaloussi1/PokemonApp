@@ -10,7 +10,6 @@ class GetPokemonDetailsUseCase
     private val pokemonRepository: PokemonRepository
 ) {
 
-
     suspend fun execute(id: Int): Pair<PokemonDetails?, String?> =
         pokemonRepository.getPokemonDetails(id)
 }
