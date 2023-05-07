@@ -1,4 +1,4 @@
-package com.example.pokemonapp.data.dataSource
+package com.example.pokemonapp.data.dataSource.remote
 
 import com.example.pokemonapp.data.model.PokemonDetailsDto
 import com.example.pokemonapp.data.model.PokemonDto

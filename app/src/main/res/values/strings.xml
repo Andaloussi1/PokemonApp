@@ -4,5 +4,4 @@
     <string name="fail_to_load_data">Fail to load data</string>
     <string name="height">Height : %s</string>
     <string name="weight">Weight : %s</string>
-
 </resources>

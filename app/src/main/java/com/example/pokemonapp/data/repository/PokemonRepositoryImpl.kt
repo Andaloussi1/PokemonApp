@@ -1,6 +1,6 @@
 package com.example.pokemonapp.data.repository
 
-import com.example.pokemonapp.data.dataSource.PokemonRemoteDataSource
+import com.example.pokemonapp.data.dataSource.remote.PokemonRemoteDataSource
 import com.example.pokemonapp.data.model.PokemonDtoMapper
 import com.example.pokemonapp.domain.model.Pokemon
 import com.example.pokemonapp.domain.model.PokemonDetails

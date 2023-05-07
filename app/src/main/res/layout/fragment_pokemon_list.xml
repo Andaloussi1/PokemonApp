@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.pokemonapp.ui.PokemonListViewModel" />
@@ -15,6 +16,7 @@
         android:layout_height="match_parent"
         android:background="@color/background_color_list"
         tools:context="com.example.pokemonapp.ui.PokemonListViewModel">
+
 
         <TextView
             android:id="@+id/dataStatus"
@@ -28,15 +30,20 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="pokemons list loaded successfully" />
 
-        <ImageView
-            android:id="@+id/loaderImg"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/pokemonLoaderLottie"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/loading_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="Lotti/pokemon_lotti_loader.json"
+            app:lottie_loop="true" />
+
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/PokemonListRecyclerView"
