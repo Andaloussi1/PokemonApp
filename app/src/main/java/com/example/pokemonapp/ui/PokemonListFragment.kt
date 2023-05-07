@@ -41,16 +41,15 @@ class PokemonListFragment : Fragment() {
 
         viewModel.loading.observe(viewLifecycleOwner) { loadingStatus ->
             if (loadingStatus) {
-                binding.loaderImg.visibility = View.VISIBLE
+                binding.pokemonLoaderLottie.visibility = View.VISIBLE
             } else {
-                binding.loaderImg.visibility = View.GONE
+                binding.pokemonLoaderLottie.visibility = View.GONE
             }
         }
         viewModel.pokemons.observe(viewLifecycleOwner) { pokemonList ->
             binding.PokemonListRecyclerView.adapter = PokemonItemAdapter(pokemonList) { pokemonId ->
-                (requireActivity() as PokemonMainActivity).navPokemonDetails(pokemonId)
+                (requireActivity() as PokemonMainActivity).openPokemonDetailsScreen(pokemonId)
             }
-            binding.dataStatus.visibility = View.GONE
         }
 
         viewModel.errorResponse.observe(viewLifecycleOwner) {

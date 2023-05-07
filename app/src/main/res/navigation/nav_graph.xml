@@ -12,6 +12,9 @@
         <argument
             android:name="pokemon_id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_pokemonDetailsFragment_to_detailsWebFragment"
+            app:destination="@id/detailsWebFragment" />
     </fragment>
     <fragment
         android:id="@+id/pokemonListFragment"
@@ -20,5 +23,14 @@
         <action
             android:id="@+id/action_pokemonListFragment_to_pokemonDetailsFragment"
             app:destination="@id/pokemonDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsWebFragment"
+        android:name="com.example.pokemonapp.ui.DetailsWebViewFragment"
+        android:label="fragment_details_web"
+        tools:layout="@layout/fragment_details_webview">
+        <argument
+            android:name="pokemon_name"
+            app:argType="string" />
     </fragment>
 </navigation>

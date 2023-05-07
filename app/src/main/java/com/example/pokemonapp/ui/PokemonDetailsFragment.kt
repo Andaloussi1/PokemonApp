@@ -33,6 +33,14 @@ class PokemonDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val pokemonId = navigationArgs.pokemonId
         viewModel.getPokemonDetails(pokemonId)
+
+        binding.WebFloatingButton.setOnClickListener {
+            viewModel.pokemonDetails.value?.let { pokemonName ->
+                (requireActivity() as PokemonMainActivity).openPokemonDetailsWebView(
+                    pokemonName.name
+                )
+            }
+        }
         initObservers()
 
     }

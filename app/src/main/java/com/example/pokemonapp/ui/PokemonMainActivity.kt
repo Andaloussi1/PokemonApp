@@ -14,11 +14,20 @@ class PokemonMainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun navPokemonDetails(pokemonId: Int) {
+    fun openPokemonDetailsScreen(pokemonId: Int) {
         val action =
             PokemonListFragmentDirections.actionPokemonListFragmentToPokemonDetailsFragment(
                 pokemonId
             )
         findNavController(R.id.nav_host_fragment).navigate(action)
     }
+
+    fun openPokemonDetailsWebView(pokemonName: String) {
+        val action =
+            PokemonDetailsFragmentDirections.actionPokemonDetailsFragmentToDetailsWebFragment(
+                pokemonName
+            )
+        findNavController(R.id.nav_host_fragment).navigate(action)
+    }
+
 }
